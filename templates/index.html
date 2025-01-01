@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The College Hub</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="chatbox">
+            <div class="chatbox__support">
+                <div class="chatbox__header">
+                    <div class="chatbox__image--header">
+                        <img src="https://img.icons8.com/color/48/000000/circled-user-female-skin-type-5--v1.png" alt="College Hub Avatar">
+                    </div>
+                    <div class="chatbox__content--header">
+                        <h4 class="chatbox__heading--header">The College Hub</h4>
+                        <p class="chatbox__description--header">Hi! Welcome to The College Hub. How can I assist you with your college queries?</p>
+                    </div>
+                    <button class="maximize-button" aria-label="Maximize chat window">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </button>
+                </div>
+                
+                <div class="chatbox__messages">
+                    <div class="messages__history"></div>
+                </div>
+                
+                <div class="chatbox__footer">
+                    <input 
+                        type="text" 
+                        id="chatInput" 
+                        name="chatInput" 
+                        placeholder="Type your message here..."
+                        aria-label="Chat message"
+                    >
+                    <button class="chatbox__send--footer send__button">
+                        <i class="fas fa-paper-plane"></i> Send
+                    </button>
+                </div>
+            </div>
+            
+            <div class="chatbox__button">
+                <button aria-label="Open chat">
+                    <img src="{{ url_for('static', filename='images/chatbox-icon.svg') }}" alt="Chatbox Icon"/>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var $SCRIPT_ROOT = JSON.parse('{{ request.script_root|tojson|safe }}');
+    </script>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
